@@ -1,22 +1,23 @@
-import os
-import os.path
-import json
 import base64
-import requests
+import json
+import codecs
 from urllib import request
+
+import requests
 
 file_path1 = "E:/Projects/midwares/midwares/TestFile.txt"
 file_path2 = "E:/Projects/midwares/midwares/temp.txt"
-repo_file_url = 'https://api.github.com/repos/honwaii/autocommit/contents/TestFile.txt'
+repo_file_url = 'https://api.github.com/repos/honwaii/midwares/contents/TestFile.txt'
 
 user_agent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36"
 headers = {"User-agent": user_agent}
 
 
 def writefile():
-	file1 = open(file_path1, "w")
-	file2 = open(file_path2, "r")
+	file1 = codecs.open(file_path1, "w", encoding="utf-8")
+	file2 = codecs.open(file_path2, "rb", encoding="utf-8")
 	line = file2.readline()
+	print(line)
 	while line:
 		file1.writelines(line)
 		line = file2.readline()
@@ -32,7 +33,7 @@ def get_file_info(file_url):  # 获取文件的sha值
 
 
 def convert_contents(content_path):  # 编码转换
-	temp = open(content_path, "r").read()
+	temp = codecs.open(content_path, "r", encoding="utf-8").read()
 	content = str(base64.b64encode(temp.encode('utf-8')), "utf-8")  # 将打开的文件转换为base64编码
 	return content
 
