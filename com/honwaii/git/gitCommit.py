@@ -5,8 +5,8 @@ import base64
 import requests
 from urllib import request
 
-file_path1 = "E:/Projects/autocommit/TestFile.txt"
-file_path2 = "E:/Projects/autocommit/temp.txt"
+file_path1 = "E:/Projects/midwares/midwares/TestFile.txt"
+file_path2 = "E:/Projects/midwares/midwares/temp.txt"
 repo_file_url = 'https://api.github.com/repos/honwaii/autocommit/contents/TestFile.txt'
 
 user_agent = "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36"
